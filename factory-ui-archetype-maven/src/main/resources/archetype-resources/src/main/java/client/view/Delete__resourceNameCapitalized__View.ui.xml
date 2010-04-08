@@ -1,0 +1,19 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <ui:with field='resources' type='${package}.client.resources.${serviceNameCapitalized}Resources' />
+
+    <g:VerticalPanel>
+        <g:HorizontalPanel>
+            <g:Label>Delete ${resourceNameCapitalized} </g:Label>
+            <g:Label ui:field="name"></g:Label>
+        </g:HorizontalPanel>
+        <g:Label>Are you sure?</g:Label>
+        <g:Button ui:field="delete">Delete</g:Button>
+    </g:VerticalPanel>
+    
+</ui:UiBinder> 

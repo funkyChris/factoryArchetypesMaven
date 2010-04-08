@@ -1,0 +1,22 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+
+	<display-name>${resourceNameCapitalized} service UI test</display-name>
+
+	<servlet>
+		<description>Servlet </description>
+		<display-name>${resourceNameCapitalized}Servlet</display-name>
+		<servlet-name>${resourceNameCapitalized}Servlet</servlet-name>
+		<servlet-class>${package}.server.${resourceNameCapitalized}ServletImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>${resourceNameCapitalized}Servlet</servlet-name>
+		<url-pattern>/${resourceName}/${resourceName}</url-pattern>
+	</servlet-mapping>
+
+</web-app>

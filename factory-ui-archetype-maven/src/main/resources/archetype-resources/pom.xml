@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>factory-ui-all-maven</artifactId>
+		<groupId>org.qualipso</groupId>
+		<version>1.0-QAD-SNAPSHOT</version>
+		<relativePath>../factory-ui-all-maven</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+	<version>${version}</version>
+	<name>${artifactId}</name>
+	<build>
+		<defaultGoal>compile</defaultGoal>
+		<finalName>${artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>1.2</version>
+				<configuration>
+					<servicePattern>**/client/**/*Servlet.java</servicePattern>
+					<webappDirectory>target/classes/META-INF/resources</webappDirectory>
+					<disableCastChecking>true</disableCastChecking>
+					<disableClassMetadata>true</disableClassMetadata>
+					<draftCompile>true</draftCompile>
+					<style>OBF</style>
+					<!--<style>DETAILED</style>-->
+					<runTarget>index.html</runTarget>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generateAsync</goal>
+							<goal>compile</goal>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*TestGwt.java</exclude>
+						<exclude>**/Gwt*Suite.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<excludeScope>provided</excludeScope>
+							<outputDirectory>war/WEB-INF/lib</outputDirectory>
+							<stripVersion>true</stripVersion>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>war_creation</id>
+						<phase>compile</phase>
+						<configuration>
+							<tasks>
+								<copy todir="war/WEB-INF/classes" overwrite="true">
+									<fileset dir="src/main/java" casesensitive="yes">
+										<exclude name="**/*.gwt.xml" />
+										<exclude name="**/*.java" />
+										<include name="**/*" />
+									</fileset>
+									<fileset dir="src/test/java" casesensitive="yes">
+										<exclude name="**/*.gwt.xml" />
+										<exclude name="**/*.java" />
+										<include name="**/*" />
+									</fileset>
+								</copy>
+								<copy todir="war/WEB-INF/classes" overwrite="true">
+									<fileset dir="target/classes" casesensitive="yes">
+										<exclude name="META-INF/**" />
+										<exclude name="**/*TestGwt.class" />
+										<exclude name="**/Gwt*Suite.class" />
+										<include name="**/*" />
+									</fileset>
+								</copy>
+								<copy todir="war" overwrite="true">
+									<fileset dir="src/main/resources/META-INF/resources" casesensitive="yes">
+										<include name="**/*" />
+									</fileset>
+								</copy>
+								<copy todir="war" overwrite="true">
+									<fileset dir="src/main/webapp" casesensitive="yes">
+										<include name="**/*" />
+									</fileset>
+								</copy>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>war_cleaning</id>
+						<phase>clean</phase>
+						<configuration>
+							<tasks>
+								<delete includeemptydirs="true">
+									<fileset dir="war/">
+										<include name="**/*" />
+									</fileset>
+								</delete>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwt.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.jbossas</groupId>
+			<artifactId>jboss-as-client</artifactId>
+			<version>5.1.0.GA</version>
+			<type>pom</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.qualipso</groupId>
+			<artifactId>factory-ui-shared-OpenParts</artifactId>
+			<version>1.0-QAD-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.qualipso</groupId>
+			<artifactId>factory-core</artifactId>
+			<version>0.4.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>${serviceGroupId}</groupId>
+			<artifactId>${serviceArtifactId}</artifactId>
+			<version>${serviceVersion}</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

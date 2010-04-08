@@ -1,0 +1,22 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:with field='resources' type='${package}.client.resources.${serviceNameCapitalized}Resources' />
+
+	<g:VerticalPanel>
+		<g:Label>${resourceNameCapitalized}:</g:Label>
+		<g:HorizontalPanel>
+			<g:Label>${resourceNameCapitalized} name:</g:Label>
+			<g:Label ui:field="name"></g:Label>
+		</g:HorizontalPanel>
+		<g:HorizontalPanel>
+			<g:Label>${resourceNameCapitalized} path:</g:Label>
+			<g:Label ui:field="path"></g:Label>
+		</g:HorizontalPanel>
+	</g:VerticalPanel>
+
+</ui:UiBinder> 

@@ -1,0 +1,17 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<web-fragment>
+	<name>${serviceNameCapitalized}</name>
+	<servlet>
+		<description>Servlet</description>
+		<display-name>${serviceNameCapitalized}Servlet</display-name>
+		<servlet-name>${serviceNameCapitalized}Servlet</servlet-name>
+		<servlet-class>${package}.server.${serviceNameCapitalized}ServletImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>${serviceNameCapitalized}Servlet</servlet-name>
+		<url-pattern>/${serviceName}/${serviceName}</url-pattern>
+	</servlet-mapping>
+</web-fragment>
