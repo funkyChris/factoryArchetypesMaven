@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Authors Jerome Blanchard <jayblanc@gmail.com> - Christophe Bouthier <christophe.bouthier@loria.fr>
+		Date 7 April 2010
+	-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>factory-ui-all-maven</artifactId>
+		<groupId>org.qualipso</groupId>
+		<version>1.0-QAD-SNAPSHOT</version>
+		<relativePath>../factory-ui-all-maven</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.qualipso</groupId>
+	<artifactId>factory-ui-archetype-all</artifactId>
+	<version>1.0-QAD-SNAPSHOT</version>
+	<packaging>maven-archetype</packaging>
+	<name>Factory UI Archetype All</name>
+	 <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>2.0-alpha-5-SNAPSHOT</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <version>2.0-alpha-5-SNAPSHOT</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+

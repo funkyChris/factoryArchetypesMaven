@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Authors Jerome Blanchard <jayblanc@gmail.com> - Christophe Bouthier <christophe.bouthier@loria.fr>
+		Date 7 April 2010
+	-->
+<archetype-descriptor name="factory-ui-archetype-service" xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <requiredProperties>
+    <requiredProperty key="groupId">
+      <defaultValue>org.qualipso</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="artifactId">
+      <defaultValue>factory-ui-service-myservice</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="version">
+      <defaultValue>1.0-QAD-SNAPSHOT</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="serviceGroupId">
+      <defaultValue>org.qualipso</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="serviceArtifactId">
+      <defaultValue>factory-service-myservice</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="serviceVersion">
+      <defaultValue>1.0-SNAPSHOT</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="package">
+      <defaultValue>org.qualipso.factory.ui.service.myservice</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="servicePackage">
+      <defaultValue>org.qualipso.factory.service.myservice</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="serviceName">
+      <defaultValue>myservice</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="serviceNameCapitalized">
+      <defaultValue>Myservice</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="resourceName">
+      <defaultValue>myresource</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="resourceNameCapitalized">
+      <defaultValue>Myresource</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+  <fileSets>
+    <fileSet packaged="true" filtered="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+        <include>**/*.xml</include>
+        <include>**/*.css</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.MF</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/main/resources/META-INF/resources</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.xml</include>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.MF</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/test</directory>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/test/java</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>.settings</directory>
+      <includes>
+        <include>**/*.component</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>.settings</directory>
+      <includes>
+        <include>**/*.prefs</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>.project</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>.classpath</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Authors Jerome Blanchard <jayblanc@gmail.com> - Christophe Bouthier <christophe.bouthier@loria.fr>
+		Date 7 April 2010
+	-->
+<archetype-descriptor name="factory-archetype-all" xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <requiredProperties>
+    <requiredProperty key="groupId">
+      <defaultValue>org.qualipso</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="artifactId">
+      <defaultValue>factory-services-all</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="version">
+      <defaultValue>1.0-SNAPSHOT</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="displayName">
+      <defaultValue>Qualipso Factory</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="serviceGroupId">
+      <defaultValue>org.qualipso</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="serviceArtifactId">
+      <defaultValue>factory-service-myservice</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="serviceVersion">
+      <defaultValue>1.0-SNAPSHOT</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+</archetype-descriptor>
